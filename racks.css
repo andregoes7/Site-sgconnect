@@ -56,3 +56,32 @@ body {
     padding: 20px;
     margin-top: 40px;
   }
+
+  
+  .filtro-marcas {
+    margin: 5px;
+    text-align: center;
+  }
+
+  .filtro-marcas button {
+    background-color: #ffffff;
+    color: darkblue;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bolder;
+    transition: background-color 0.3s ease;
+
+  }
+
+  .filtro-marcas button:hover {
+    background-color: darkblue; /* Um tom mais escuro no hover */
+    color: white;
+  }
+
+  .filtro-marcas button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #a4d4ae; /* Realce suave */
+  }

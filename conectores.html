@@ -8,11 +8,18 @@
     <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
 </head>
 <body>
+
+  <div class="filtro-marcas">
+    <button onclick="filtrarMarca('todas')">Todas</button>
+    <button onclick="filtrarMarca('multitoc')">Multitoc</button>
+    <button onclick="filtrarMarca('nexans')">Nexans</button>
+    <button onclick="filtrarMarca('draka')">Draka</button>
+  </div>
     
-    <div class="produto">
+    <div class="produto" data-marca="multitoc" >
         <img src="https://myfimport.com/wp-content/uploads/2020/09/crj45-2.jpg" alt="RJ-45">
         <h3>Conector RJ45 CAT5e</h3>
-        <p>CMultitoc (Pacote c/ 100)</p>
+        <p>Multitoc (Pacote c/ 100)</p>
         
         <a href="https://wa.me/5527997540264"
         target="_blank"
@@ -86,6 +93,20 @@
         Pedir pelo WhatsApp </a>
         
       </div>
+
+      <script>
+        function filtrarMarca(marca) {
+          const produtos = document.querySelectorAll('.produto');
+          produtos.forEach(prod => {
+            const marcaProduto = prod.getAttribute('data-marca')?.toLowerCase();
+            if (marca === 'todas' || marcaProduto === marca) {
+              prod.style.display = 'block';
+            } else {
+              prod.style.display = 'none';
+            }
+          });
+        }
+      </script>
     
 </body>
 </html>
