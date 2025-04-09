@@ -14,11 +14,14 @@
           <img class="logo" src="imagens/logo2.png" alt="logo">
           
             <ul id="menu">
-                <a href="cabos.html"><li>Cabos de rede</li></a>
+                <a href="cabos.html"><li>Cabos</li></a>
                 <a href="conectores.html"><li>Conectores</li></a>
-                <a href="equipamentos.html"><li>Equipamentos</li></a>
+                <a href="equipamentos.html"><li>Racks</li></a>
                 
             </ul>
+            <div class="barra-de-busca">
+              <input type="text" id="campoBusca" placeholder="Buscar produto..." onkeyup="buscarProduto()">
+            </div>
         </nav>
   </header>
 
@@ -71,54 +74,70 @@
           <h3>Patch Cord CAT6</h3>
           <p>2m - Nexans (Azul)</p>
           
-          <a href="https://wa.me/5599999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto:%20Cabo%20de%20Rede%20CAT6"
-          target="_blank"
-          style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
-          Pedir pelo WhatsApp </a>
-          
-        </div>
+          <a href="https://wa.me/5527997540264"
+        target="_blank"
+        style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
+        Pedir pelo WhatsApp </a> </div>
+
         <div class="produto">
           <img src="https://www.electromisiones.com.ar/23654-large_default/patch_panel_furukawa_modular_24_puertos_cat_6.webp" alt="Patch Panel 24 Portas CAT6">
           <h3>Patch Panel 24 Portas CAT6</h3>
           <p>Furukawa</p>
           
-          <a href="https://wa.me/5599999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto:%20Cabo%20de%20Rede%20CAT6"
-          target="_blank"
-          style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
-          Pedir pelo WhatsApp </a>
-          
-        </div>
+          <a href="https://wa.me/5527997540264"
+        target="_blank"
+        style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
+        Pedir pelo WhatsApp </a> </div>
+
         <div class="produto">
           <img src="https://asset.productmarketingcloud.com/api/assetstorage/186_589b2d1f-5179-4660-8e39-884c61e225aa" alt="Cabo CAT7 F/FTP 600MHz 100m">
           <h3>Cabo CAT7 F/FTP 600MHz</h3>
           <p>100m - Draka (Preto)</p>
           
-          <a href="https://wa.me/5599999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto:%20Cabo%20de%20Rede%20CAT6"
-          target="_blank"
-          style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
-          Pedir pelo WhatsApp </a>
-          
-        </div>
+          <a href="https://wa.me/5527997540264"
+        target="_blank"
+        style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
+        Pedir pelo WhatsApp </a> </div>
+
         <div class="produto">
           <img src="https://pcredcom.com/var/images/product/800.800//import/1/6/1/0/8/2/161082_1.jpg" alt="Keystone Azul">
           <h3>Keystone Jack CAT6A</h3>
           <p>Azul</p>
           
-          <a href="https://wa.me/5599999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto:%20Cabo%20de%20Rede%20CAT6"
-          target="_blank"
-          style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
-          Pedir pelo WhatsApp </a>
-          
-        </div>
-
-
-        
-        
+          <a href="https://wa.me/5527997540264"
+        target="_blank"
+        style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
+        Pedir pelo WhatsApp </a> </div>  
         
         
         
       
   </main>
+  <div class="orcamento-container">
+    <h2>Solicite um Orçamento</h2>
+    <button class="btn-orcamento" onclick="mostrarFormulario('produtos')">Fazer Orçamento de Produtos</button>
+    <button class="btn-orcamento" onclick="mostrarFormulario('servicos')">Fazer Orçamento de Serviços</button>
+  
+    <!-- Formulário de Produtos -->
+    <div id="form-produtos" class="form-orcamento">
+      <h3>Orçamento de Produtos</h3>
+      <input type="text" id="nome-prod" placeholder="Seu nome">
+      <input type="email" id="email-prod" placeholder="Seu e-mail">
+      <textarea id="mensagem-prod" rows="4" placeholder="Quais produtos deseja orçar?"></textarea>
+      <button onclick="enviarOrcamentoWhatsApp('produtos')">Enviar</button>
+    </div>
+  
+    <!-- Formulário de Serviços -->
+    <div id="form-servicos" class="form-orcamento">
+      <h3>Orçamento de Serviços</h3>
+      <input type="text" id="nome-serv" placeholder="Seu nome">
+      <input type="email" id="email-serv" placeholder="Seu e-mail">
+      <textarea id="mensagem-serv" rows="4" placeholder="Descreva o serviço que deseja orçar"></textarea>
+      <button onclick="enviarOrcamentoWhatsApp('servicos')">Enviar</button>
+    </div>
+  </div>
+
+  
 
   <footer>
     <h2>Entre em contato conosco:</h2>
@@ -135,5 +154,50 @@
     <p>📍 Localização: Serra - ES, Brasil / 🕒 Atendimento: Segunda a Sexta, das 08h às 18h</p>
     
   </footer>
+  <script>
+    function buscarProduto() {
+      const input = document.getElementById("campoBusca").value.toLowerCase();
+      const produtos = document.querySelectorAll(".produto");
+  
+      produtos.forEach(produto => {
+        const texto = produto.innerText.toLowerCase();
+        if (texto.includes(input)) {
+          produto.style.display = "block";
+        } else {
+          produto.style.display = "none";
+        }
+      });
+    }
+    function mostrarFormulario(tipo) {
+    document.getElementById('form-produtos').style.display = 'none';
+    document.getElementById('form-servicos').style.display = 'none';
+
+    if (tipo === 'produtos') {
+      document.getElementById('form-produtos').style.display = 'block';
+    } else if (tipo === 'servicos') {
+      document.getElementById('form-servicos').style.display = 'block';
+    }
+  }
+
+  function enviarOrcamentoWhatsApp(tipo) {
+    let nome, email, mensagem;
+    if (tipo === 'produtos') {
+      nome = document.getElementById('nome-prod').value;
+      email = document.getElementById('email-prod').value;
+      mensagem = document.getElementById('mensagem-prod').value;
+    } else {
+      nome = document.getElementById('nome-serv').value;
+      email = document.getElementById('email-serv').value;
+      mensagem = document.getElementById('mensagem-serv').value;
+    }
+
+    const texto = `Olá! Gostaria de solicitar um orçamento.\n\n*Nome:* ${nome}\n*Email:* ${email}\n*Tipo:* ${tipo.toUpperCase()}\n*Mensagem:* ${mensagem}`;
+    const url = `https://wa.me/5527997540264?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+  }
+  
+  
+  </script>
+
 </body>
 </html>

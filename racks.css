@@ -9,6 +9,26 @@ body {
     width: 100%;
 
   }
+
+  .barra-de-busca {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  #campoBusca {
+    padding: 10px;
+    width: 80%;
+    max-width: 500px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  #campoBusca:focus {
+    outline: none;
+    border-color: #056829;
+    box-shadow: 0 0 5px rgba(5, 104, 41, 0.3);
+  }
  
   .produto {
     background-color: white;
