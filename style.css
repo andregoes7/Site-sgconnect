@@ -231,3 +231,52 @@ h2 {
     height: 24px;
     vertical-align: middle;
   }
+
+  .btn-cotacao {
+    background-color: #192953;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .btn-cotacao:hover {
+    background-image: linear-gradient(to right, #000000 1%, #192953, rgb(1, 1, 107));
+  }
+  .carrinho-flutuante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 280px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 9999;
+  }
+
+  #carrinho-cotacao {
+    display: none; /* Esconde a janela até adicionar algo */
+  }
+  .carrinho-flutuante h4 {
+    margin-top: 0;
+  }
+  .carrinho-flutuante input {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .carrinho-flutuante button {
+    background-color: #056829;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+  }

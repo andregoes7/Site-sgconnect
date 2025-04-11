@@ -21,10 +21,7 @@
         <h3>Conector RJ45 CAT5e</h3>
         <p>Multitoc (Pacote c/ 100)</p>
         
-        <a href="https://wa.me/5527997540264"
-        target="_blank"
-        style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
-        Pedir pelo WhatsApp </a>
+        <button class="btn-cotacao" onclick="adicionarProduto(this)">Adicionar à Cotação</button>
       </div>
 
       <div class="produto">
@@ -32,10 +29,7 @@
         <h3>Conector RJ45 CAT6</h3>
         <p>Nexans (Pacote c/ 100)</p>
         
-        <a href="https://wa.me/5599999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto:%20Cabo%20de%20Rede%20CAT6"
-        target="_blank"
-        style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
-        Pedir pelo WhatsApp </a>
+        <button class="btn-cotacao" onclick="adicionarProduto(this)">Adicionar à Cotação</button>
         
       </div>
       <div class="produto">
@@ -43,10 +37,7 @@
         <h3>Keystone Jack CAT5e Branco</h3>
         <p>Furukawa</p>
         
-        <a href="https://wa.me/5599999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto:%20Cabo%20de%20Rede%20CAT6"
-        target="_blank"
-        style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
-        Pedir pelo WhatsApp </a>
+        <button class="btn-cotacao" onclick="adicionarProduto(this)">Adicionar à Cotação</button>
         
       </div>
       <div class="produto">
@@ -54,10 +45,7 @@
         <h3>Keystone Jack CAT6 Blindado</h3>
         <p>Branco</p>
         
-        <a href="https://wa.me/5599999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto:%20Cabo%20de%20Rede%20CAT6"
-        target="_blank"
-        style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
-        Pedir pelo WhatsApp </a>
+        <button class="btn-cotacao" onclick="adicionarProduto(this)">Adicionar à Cotação</button>
         
       </div>
       <div class="produto">
@@ -65,10 +53,7 @@
         <h3>Keystone Jack CAT6A</h3>
         <p>Azul</p>
         
-        <a href="https://wa.me/5599999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto:%20Cabo%20de%20Rede%20CAT6"
-        target="_blank"
-        style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
-        Pedir pelo WhatsApp </a>
+        <button class="btn-cotacao" onclick="adicionarProduto(this)">Adicionar à Cotação</button>
         
       </div>
       <div class="produto">
@@ -76,10 +61,7 @@
         <h3>Módulo Keystone 45x45mm</h3>
         <p>Branco</p>
         
-        <a href="https://wa.me/5599999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto:%20Cabo%20de%20Rede%20CAT6"
-        target="_blank"
-        style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
-        Pedir pelo WhatsApp </a>
+        <button class="btn-cotacao" onclick="adicionarProduto(this)">Adicionar à Cotação</button>
         
       </div>
       <div class="produto">
@@ -87,10 +69,7 @@
         <h3>Patch Panel 24 Portas CAT6</h3>
         <p>Furukawa</p>
         
-        <a href="https://wa.me/5599999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto:%20Cabo%20de%20Rede%20CAT6"
-        target="_blank"
-        style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #056829; color: white; text-decoration: none; border-radius: 5px;">
-        Pedir pelo WhatsApp </a>
+        <button class="btn-cotacao" onclick="adicionarProduto(this)">Adicionar à Cotação</button>
         
       </div>
 
@@ -107,6 +86,15 @@
   ← Voltar para a Página Inicial
 </a>
 
+<div id="carrinho-cotacao" class="carrinho-flutuante">
+  <h4>Produtos selecionados:</h4>
+  <ul id="lista-cotacao"></ul>
+  <small>Clique em um item para remover</small>
+  <input type="text" id="nomePessoa" placeholder="Seu nome">
+  <input type="text" id="nomeEmpresa" placeholder="Nome da empresa">
+  <button onclick="enviarCotacao()">Enviar Cotação</button>
+</div> 
+
       <script>
         function filtrarMarca(marca) {
           const produtos = document.querySelectorAll('.produto');
@@ -119,6 +107,104 @@
             }
           });
         }
+
+        let produtosSelecionados = JSON.parse(localStorage.getItem('produtosSelecionados')) || [];
+
+
+        function adicionarProduto(botao) {
+  const produto = botao.closest('.produto');
+  const nomeProduto = produto.querySelector('h3')?.innerText || 'Produto sem nome';
+const marcaProduto = produto.querySelector('.marca')?.innerText || 'Marca não informada';
+const nomeComMarca = `${nomeProduto} - ${marcaProduto}`;
+
+  if (!produtosSelecionados.includes(nomeProduto)) {
+    produtosSelecionados.push(nomeComMarca);
+
+    const lista = document.getElementById('lista-cotacao');
+    const item = document.createElement('li');
+    item.textContent = nomeComMarca;
+    item.setAttribute('data-nome', nomeComMarca);
+
+    // Função para remover o item
+    item.onclick = () => removerProduto(nomeProduto, item);
+    lista.appendChild(item);
+    localStorage.setItem('produtosSelecionados', JSON.stringify(produtosSelecionados));
+
+
+    // Feedback visual
+    botao.innerText = "Adicionado!";
+    botao.disabled = true;
+    botao.style.backgroundimage = "#4CAF50";
+
+    // Mostra a janela do carrinho
+    document.getElementById('carrinho-cotacao').style.display = 'block';
+  }
+}
+
+function removerProduto(nome, elemento) {
+  const index = produtosSelecionados.indexOf(nome);
+  if (index !== -1) {
+    produtosSelecionados.splice(index, 1);
+    elemento.remove();
+    localStorage.setItem('produtosSelecionados', JSON.stringify(produtosSelecionados));
+
+
+    // Reativa o botão correspondente
+    const produtos = document.querySelectorAll('.produto');
+    produtos.forEach(produto => {
+      const titulo = produto.querySelector('h3')?.innerText || '';
+      if (titulo === nome) {
+        const botao = produto.querySelector('button');
+        if (botao) {
+          botao.disabled = false;
+          botao.innerText = "Adicionar à Cotação";
+          botao.style.backgroundimage = "#056829";
+        }
+      }
+    });
+
+    // Se a lista ficar vazia, oculta a janela
+    if (produtosSelecionados.length === 0) {
+      document.getElementById('carrinho-cotacao').style.display = 'none';
+    }
+  }
+}
+
+function enviarCotacao() {
+  const nome = document.getElementById("nomePessoa").value.trim();
+  const empresa = document.getElementById("nomeEmpresa").value.trim();
+
+  if (!nome || !empresa || produtosSelecionados.length === 0) {
+    alert("Preencha seu nome, empresa e selecione ao menos um produto.");
+    return;
+  }
+
+  const texto = `Olá! Gostaria de solicitar um orçamento.\n\n*Nome:* ${nome}\n*Empresa:* ${empresa}\n*Produtos:*\n- ${produtosSelecionados.join('\n- ')}`;
+  const url = `https://wa.me/5527997540264?text=${encodeURIComponent(texto)}`;
+  window.open(url, '_blank');
+}
+
+window.onload = function () {
+  if (produtosSelecionados.length > 0) {
+    const lista = document.getElementById('lista-cotacao');
+    produtosSelecionados.forEach(nomeComMarca => {
+      const item = document.createElement('li');
+      item.textContent = nomeComMarca;
+      item.setAttribute('data-nome', nomeComMarca);
+
+      // Pega só o nome sem a marca
+      const nomeReal = nomeComMarca.split(' - ')[0];
+
+      item.onclick = () => removerProduto(nomeReal, item);
+      lista.appendChild(item);
+    });
+
+    // Mostra a janela do carrinho
+    document.getElementById('carrinho-cotacao').style.display = 'block';
+  }
+};
+
+
       </script>
     
 </body>
